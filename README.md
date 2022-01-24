@@ -25,8 +25,6 @@ g++ main.cpp
 ./a.out
 
 # Second way
+chmod u+x a.out
 ./a.out
-
-# Third way
-./run.sh
 ```
