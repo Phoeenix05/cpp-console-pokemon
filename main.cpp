@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
+#include "./src/moves.h"
 #include "./src/pokemon.h"
+#include "./util/util.h"
 
 using namespace std;
 

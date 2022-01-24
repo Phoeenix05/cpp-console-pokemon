@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "./calc.h"
+#include "../util/util.h"
 
 using namespace std;
 
@@ -14,12 +15,12 @@ namespace pokemon {
     string name;
     int lvl, hp, atk, def;
 
-    Pokemon(string name_, int stats[]) {
-      name = name_;
+    Pokemon(string n, int s[]) {
+      name = n;
       lvl = calc::randint(90, 70);
-      hp = calc::HP(stats[0], lvl);
-      atk = calc::OtherStat(stats[1], lvl);
-      def = calc::OtherStat(stats[2], lvl);
+      hp = calc::HP(s[0], lvl);
+      atk = calc::OtherStat(s[1], lvl);
+      def = calc::OtherStat(s[2], lvl);
     }
 
     void printStats() {
