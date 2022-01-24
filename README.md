@@ -2,16 +2,12 @@
 
 ## Requirements
 
-___
-
 - C++ installed
 - C++ compiler, `gcc` or `g++`
 
 <br />
 
 ## Install and run
-
-___
 
 Download the repo locally.
 
