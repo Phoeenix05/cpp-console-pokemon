@@ -9,7 +9,7 @@ using namespace std;
 namespace calc {
 
   int randint(int high, int low = 0) { return rand() % ( high - low + 1 ) + low; }
-  float randf(float high, float low) {
+  float randf(float high, float low = 0.0) {
     return roundf((((high - low) * ((float) rand() / RAND_MAX)) + 0.85) * 100) / 100;
   }
     

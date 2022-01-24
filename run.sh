@@ -1,6 +1,3 @@
 #!/bin/zsh
 
-clear
-
-g++ $1
-./a.out 
+g++ main.cpp -lncurses && ./a.out

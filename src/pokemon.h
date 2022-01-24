@@ -3,9 +3,11 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include "./calc.h"
 #include "../util/util.h"
 
+using namespace moves;
 using namespace std;
 
 namespace pokemon {
@@ -14,6 +16,7 @@ namespace pokemon {
   public: 
     string name;
     int lvl, hp, atk, def;
+    vector< Move > moves;
 
     Pokemon(string n, int s[]) {
       name = n;
