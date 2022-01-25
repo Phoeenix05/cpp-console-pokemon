@@ -4,10 +4,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <curses.h>
 #include "./calc.h"
 #include "../util/util.h"
 
-using namespace moves;
 using namespace std;
 
 namespace pokemon {
@@ -16,7 +16,7 @@ namespace pokemon {
   public: 
     string name;
     int lvl, hp, atk, def;
-    vector< Move > moves;
+    vector< moves::Move > moves;
 
     Pokemon(string n, int s[]) {
       name = n;
@@ -26,8 +26,14 @@ namespace pokemon {
       def = calc::OtherStat(s[2], lvl);
     }
 
+    void setMoves(moves::Move m[]) {
+      for (int i = 0; i < 4; i++) moves.push_back(m[i]);
+    }
+
     void printStats() {
-      cout << lvl << ' ' << hp << ' ' << atk << ' ' << def << endl;
+      printw("%s   \tlvl: %d, hp: %d, atk: %d, def: %d\n", name.c_str(), lvl, hp, atk, def);
+      printw("%s, %s, %s, %s\n", moves[0].str().c_str(), moves[1].str().c_str(), moves[2].str().c_str(), moves[3].str().c_str());
+      refresh();
     }
 
   };
