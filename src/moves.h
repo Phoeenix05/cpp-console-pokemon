@@ -19,11 +19,12 @@ namespace moves {
      * @param pwr Move's strength (power)
      */
     Move(string n, int pwr) { 
-      name = n;
-      power = pwr; 
+      name = n; // Asettaa liikkeen nimen
+      power = pwr; // Asettaa liikkeen tehon
     }
-
+    
     string str() {
+      // Palauttaa liikkeen nimen ja voiman yhdessä
       return to_string(power) + " " + name;
     }
   };

@@ -8,13 +8,14 @@ using namespace std;
 
 namespace calc {
 
+  // Random numero funktiot
   int randint(int high, int low = 0) { return rand() % ( high - low + 1 ) + low; }
   float randf(float high, float low = 0.0) {
-    return roundf((((high - low) * ((float) rand() / RAND_MAX)) + 0.85) * 100) / 100;
+    return roundf((((high - low) * ((float) rand() / RAND_MAX)) + low) * 100) / 100;
   }
     
   /**
-   * @brief Calculates the damage pokemon will deal to opponent
+   * @brief Laskee kuinka paljon damagea pokemon tekee
    * 
    * @param lvl Pokemon' lvl
    * @param pwr Base power of a move
