@@ -2,13 +2,20 @@
 #define GAME_H
 
 #include <string>
+#include <fstream>
 #include <memory>
-#include <unistd.h>
 #include "./pokemon.h"
 
 using namespace std;
 
 namespace game {
+
+  void writeFile(string name, pokemon::Pokemon pokemon) {
+    ofstream f;
+    f.open("./text.txt"); // Avaa tiedoston (luo jos ei ole olemassa)
+    f << "Onnea " << name << " voitit!\n" << pokemon.name; // Kirjoittaa
+    f.close(); // Sulkee tiedoston
+  }
 
   class Game {
   public:
@@ -39,14 +46,19 @@ namespace game {
           if (idx > 0 && idx < 5) break;
         }
 
+        // Miinustaa tehdyn damagen pokemonien elämä pisteistä
         c.hp -= calc::damage(p.lvl, p.moves[calc::randint(3)].power, p.atk, c.def);
         p.hp -= calc::damage(c.lvl, c.moves[calc::randint(3)].power, c.atk, p.def);
 
-        if (p.hp <= 0) {
-          printf("\033[34m%s\033[0m voitti!\n", c_name.c_str());
-          running = false;
-        } else if (c.hp <= 0) {
+        // Tarkastaa onko jomman kumman pokemonin hp 0
+        // Jos nolla lopettaa while loopin
+        if (c.hp <= 0) {
           printf("\033[34m%s\033[0m voitti!\n", p_name.c_str());
+          // Kirjoittaa tiedostoon jos voitit
+          writeFile(p_name, p);
+          running = false;
+        } else if (p.hp <= 0) {
+          printf("\033[34m%s\033[0m voitti!\n", c_name.c_str());
           running = false;
         }
       }

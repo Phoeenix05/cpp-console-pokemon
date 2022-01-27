@@ -24,7 +24,7 @@ namespace calc {
    * @return float 
    */
   float damage(int lvl, int pwr, int atk, int def) {
-    return (float) ((((2 * lvl) / 5 + 2) * pwr * (atk / def)) / 50 + 2) * randf(1.0, 0.85);
+    return (float) (((((2 * lvl) / 5 + 2) * pwr * (atk / def)) / 50 + 2) * randf(1.0, 0.85)) * 1.25;
   }
 
 

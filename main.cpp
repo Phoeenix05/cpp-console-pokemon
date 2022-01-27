@@ -4,7 +4,6 @@
 #include "./src/pokemon.h"
 #include "./src/calc.h"
 #include "./src/game.h"
-#include "./util/util.h"
 
 using namespace std;
 
